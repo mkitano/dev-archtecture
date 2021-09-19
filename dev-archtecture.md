@@ -36,6 +36,8 @@
 
 ### **better** 人が見て分かりやすい URL にする
 
+<small>参考文献: [《REST思想》と《リソース指向》と《Webページ》を一緒にしてはいけない](https://qiita.com/irxground/items/cd83786b10d81eecce77)</small>
+
 URL でよく見るのが `SYS10001/add` のようなプロジェクト固有の ID (プログラム ID とか 画面 ID 等と呼ばれる) です。
 
 機械的に付けられるものの何の機能か分かりづらいので、人が見て分かりやすい URL を設計した方がよいと思います。
@@ -149,16 +151,20 @@ java -jar -Dspring.profiles.active=develop spring-boot-application.jar
 
 ## ER 図
 
-### **must** エンティティ間の関係を分かる
+### **must** エンティティ間の関係が分かる
 
 ER 図はエンティティをリレーションシップという線で結ぶことで、エンティティ間の関係を表現しています。
 エンティティ間の関係が明らかでないと SQL の結合条件や登録、更新、削除の抜け漏れが起きる可能性があります。
 
 リレーションシップは、主キーに着目して他のエンティティの属性にそのキーが含まれていればエンティティ間に関係があるので線で結びます。
 
-![ERD](https://products.sint.co.jp/hs-fs/hubfs/blog/images_compress/er-tech3.png "ERD")
+![ERD](./figure/erd.png "ERD")
+
+<small>出典: [ER図とは？書き方やテクニックをわかりやすく解説](https://products.sint.co.jp/ober/blog/create-er-diagram)</small>
 
 ### **must** 参照整合性チェックをシンプルで安全に行う
+
+<small>参考文献: 「SQL アンチパターン - 4 章 キーレスエントリ (外部キー嫌い)」</small>
 
 参照整合性は、リレーションシップを結んだエンティティ間でレコードの整合性が取れていることです。
 
